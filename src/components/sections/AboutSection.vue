@@ -17,7 +17,7 @@ import CleaningPreviewMobile from 'src/components/CleaningPreviewMobile.vue'
 const categories = [
   {
     name: 'Кухня',
-    image: '/img/cleaning/1.jpg',
+    image: 'img/cleaning/1.jpg',
     tooltips: [
       { text: 'Чистим фасад вытяжки', pos: { top: 36, left: 36 } },
       { text: 'Чистим фасад вытяжки', pos: { top: 60, left: 32 } },
@@ -30,7 +30,7 @@ const categories = [
   },
   {
     name: 'Ванная',
-    image: '/img/cleaning/2.jpg',
+    image: 'img/cleaning/2.jpg',
     tooltips: [
       { text: 'Чистим фасад вытяжки', pos: { top: 34, left: 34 } },
       { text: 'Чистим фасад вытяжки', pos: { top: 51, left: 65 } },
@@ -41,7 +41,7 @@ const categories = [
   },
   {
     name: 'Кухня',
-    image: '/img/cleaning/1.jpg',
+    image: 'img/cleaning/1.jpg',
     tooltips: [
       { text: 'Чистим фасад вытяжки', pos: { top: 36, left: 36 } },
       { text: 'Чистим фасад вытяжки', pos: { top: 60, left: 32 } },
@@ -54,7 +54,7 @@ const categories = [
   },
   {
     name: 'Ванная',
-    image: '/img/cleaning/2.jpg',
+    image: 'img/cleaning/2.jpg',
     tooltips: [
       { text: 'Чистим фасад вытяжки', pos: { top: 34, left: 34 } },
       { text: 'Чистим фасад вытяжки', pos: { top: 51, left: 65 } },

@@ -6,8 +6,8 @@
           <div class="main-section__image-inner">
             <img
               class="main-section__image-element"
-              srcset="/img/home.jpg, /img/home@2x.jpg 2x"
-              src="/img/home.jpg"
+              srcset="img/home.jpg, img/home@2x.jpg 2x"
+              src="img/home.jpg"
               alt="image"
             >
           </div>

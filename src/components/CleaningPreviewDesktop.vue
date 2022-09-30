@@ -212,8 +212,8 @@ function createScrollTrigger() {
 
   scrollTrigger = ScrollTrigger.create({
     trigger: $wrapper,
-    start: 'center bottom',
-    end: 'center top',
+    start: 'top+=25% bottom',
+    end: 'bottom-=25% top',
     pin: false,
     snap: {
       snapTo: [0.5],

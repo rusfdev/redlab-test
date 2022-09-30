@@ -4,8 +4,7 @@ export function testScreenHeight() {
     document.documentElement.style.setProperty('--screen-height', `${sh}px`)
   }
 
-  check()
-
+  window.addEventListener('DOMContentLoaded', check)
   window.addEventListener('resize', check)
 }
 

@@ -145,7 +145,8 @@ onUnmounted(() => {
     }
     &__image-wrapper {
       width: var(--app-page-width);
-      right: calc(var(--app-container-px) * -1);
+      right: 50%;
+      transform: translateX(50%);
     }
     &__content {
       width: 100%;

@@ -1,0 +1,42 @@
+// Quasar SCSS (& Sass) Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass/SCSS variables found in Quasar's source Sass/SCSS files.
+
+// Check documentation for full list of Quasar variables
+
+// Your own variables (that are declared here) and Quasar's own
+// ones will be available out of the box in your .vue/.scss/.sass files
+
+// It's highly recommended to change the default colors
+// to match your app's branding.
+// Tip: Use the "Theme Builder" on Quasar's documentation website.
+
+$typography-font-family: 'TTTravels', '-apple-system', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$body-font-size: var(--t-body1);
+$body-line-height: var(--t-line-height);
+
+$h1:        (size: var(--t-h1));
+$h2:        (size: var(--t-h2));
+$h3:        (size: var(--t-h3));
+$h4:        (size: var(--t-h4));
+$h5:        (size: var(--t-h5));
+$h6:        (size: var(--t-h6));
+$subtitle1: (size: var(--t-subtitle1));
+$subtitle2: (size: var(--t-subtitle2));
+$body1:     (size: var(--t-body1));
+$body2:     (size: var(--t-body2));
+$caption:   (size: var(--t-caption));
+
+$accent: #5A30F0;
+$primary: $accent;
+$secondary: #636C81;
+$light: #fff;
+$dark: #404040;
+$medium-grey: #F3F6FB;
+$light-grey: #E2E8F0;
+
+$breakpoint-xs: 767px;
+$breakpoint-sm: 1023px;
+$breakpoint-md: 1279px;
+$breakpoint-lg: 1400px;

@@ -1,0 +1,115 @@
+:root {
+  --t-h1:        48px;
+  --t-h2:        44px;
+  --t-h3:        34px;
+  --t-h4:        24px;
+  --t-h5:        18px;
+  --t-h6:        16px;
+  --t-subtitle1: 22px;
+  --t-subtitle2: 20px;
+  --t-body1:     18px;
+  --t-body2:     16px;
+  --t-caption:   14px;
+
+  --t-line-height: 1.4;
+  --t-title-mt: 36px;
+  --t-title-mb: 28px;
+  --t-text-mb: 16px;
+
+  @media (max-width: $breakpoint-md-max) {
+    --t-h1: 42px;
+    --t-h2: 30px;
+    --t-h3: 26px;
+    --t-h4: 22px;
+    --t-h5: 20px;
+    --t-h6: 18px;
+  }
+
+  @media (max-width: $breakpoint-sm-max) {
+    --t-h1: 28px;
+    --t-h2: 26px;
+    --t-h3: 24px;
+    --t-h4: 20px;
+    --t-h5: 20px;
+    --t-h6: 18px;
+    --t-title-mt: 32px;
+    --t-title-mb: 24px;
+    --t-subtitle1: 22px;
+    --t-subtitle2: 20px;
+  }
+
+  @media (max-width: $breakpoint-xs-max) {
+    --t-subtitle1: 20px;
+    --t-subtitle2: 18px;
+    --t-body1: 16px;
+    --t-body2: 14px;
+    --t-title-mt: 24px;
+    --t-title-mb: 16px;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: var(--t-title-mt) 0 var(--t-title-mb) 0;
+  line-height: 1.3;
+  & + h1,
+  & + h2,
+  & + h3,
+  & + h4,
+  & + h5,
+  & + h6 {
+    margin-top: var(--t-title-mb);
+  }
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+h1, h2, .text-h1, .text-h2 {
+  font-weight: 400;
+}
+
+h3, h4, .text-h3, .text-h4 {
+  font-weight: 500;
+}
+
+h5, h6, .text-h5, .text-h6 {
+  font-weight: 600;
+}
+
+p {
+  margin: 0 0 var(--t-text-mb) 0;
+  &:last-child {
+    margin: 0;
+  }
+}
+
+a:not([class]), .link {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--trs-1);
+  body.desktop &:hover {
+    color: $accent;
+  }
+}
+
+.text-hero-title {
+  font-size: 76px;
+  line-height: 1.1;
+  font-weight: 400;
+  margin-left: -0.05em;
+  @media (max-width: $breakpoint-lg-max) {
+    font-size: 68px;
+  }
+  @media (max-width: $breakpoint-md-max) {
+    font-size: 62px;
+  }
+  @media (max-width: $breakpoint-sm-max) {
+    font-size: 54px;
+  }
+  @media (max-width: $breakpoint-xs-max) {
+    font-size: 38px;
+  }
+}

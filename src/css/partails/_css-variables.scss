@@ -1,0 +1,21 @@
+:root {
+  --xs: 8px;
+  --sm: 16px;
+  --md: 24px;
+  --lg: 32px;
+  --xl: 48px;
+
+  --app-screen-height: var(--screen-height, 100vh);
+  --app-scrollbar-width: var(--scrollbar-width, 0px);
+  --app-page-width: calc(100vw - var(--app-scrollbar-width));
+
+  //animations
+  --animation-duration-1: 150ms;
+  --animation-duration-2: 300ms;
+  --animation-duration-3: 500ms;
+  --animation-duration-4: 1000ms;
+  --trs-1: var(--animation-duration-1) ease-in-out;
+  --trs-2: var(--animation-duration-2) ease-in-out;
+  --trs-3: var(--animation-duration-3) ease-in-out;
+  --trs-4: var(--animation-duration-4) ease-in-out;
+}

@@ -1,0 +1,14 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: $light;
+  color: $dark;
+}
+
+#q-app {
+  min-height: 100%;
+  display: flex;
+  overflow: hidden;
+}

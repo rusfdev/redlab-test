@@ -5,7 +5,7 @@
   --lg: 32px;
   --xl: 48px;
 
-  --app-screen-height: var(--screen-height, 100vh);
+  --app-screen-height: 100vh;
   --app-scrollbar-width: var(--scrollbar-width, 0px);
   --app-page-width: calc(100vw - var(--app-scrollbar-width));
 

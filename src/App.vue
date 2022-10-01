@@ -12,14 +12,19 @@ const { onPreloaderComplete } = usePreloader()
 
 function showApp() {
   const $wrapper = document.querySelector('#q-app')
+  const $preloader = document.querySelector('#preloader')
 
-  gsap.to($wrapper, { autoAlpha: 1, duration: sDur[3],
-    onComplete: () => {
-      gsap.set($wrapper, { clearProps: 'all' })
-    }
-  })
-
-  document.body.style.overflow = 'auto'
+  gsap.timeline()
+    .to($preloader, { autoAlpha: 0, duration: sDur[2],
+      onComplete: () => {
+        document.body.style.overflow = 'auto'
+      }
+    })
+    .to($wrapper, { autoAlpha: 1, duration: sDur[3],
+      onComplete: () => {
+        gsap.set($wrapper, { clearProps: 'all' })
+      }
+    })
 }
 
 onPreloaderComplete(() => {

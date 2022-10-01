@@ -53,23 +53,30 @@ const animations = {
 }
 
 function onResize(size) {
-  createShowAnimation(size)
   createSlideAnimation(size)
 }
 
-function createShowAnimation(size) {
+function playShowAnimation() {
+  const $el = parentEl.value
+  const height = $el.getBoundingClientRect().height
   const scale = 0.1
-  const slideDistance = size.height * scale * (0.5 / scale) + 20
+  const slideDistance = height * scale * (0.5 / scale) + 20
 
-  animations.show = gsap.timeline({ paused: true })
+  animations.show = gsap.timeline()
     .fromTo(parentEl.value,
       { scale, y: slideDistance, rotation: -45 },
-      { scale: 1, y: 0, rotation: 0, ease: 'power2.out' })
-    .fromTo(parentEl.value, { autoAlpha: 0 }, { autoAlpha: 1, ease: 'power2.out', duration: sDur[2] }, '<')
+      { scale: 1, y: 0, rotation: 0, ease: 'power2.out' }, `+=${sDur[4]}`
+    )
+    .fromTo(parentEl.value,
+      { autoAlpha: 0 },
+      { autoAlpha: 1, ease: 'power2.out', duration: sDur[2] }, '<'
+    )
 }
 
 function createSlideAnimation(size) {
   const slideDistance = size.height * SCALE * (SLIDE_DISTANCE / SCALE) + 20
+
+  if (animations.slide) animations.slide.kill()
 
   animations.slide = gsap.timeline({ paused: true })
     .to(outerEl.value, { scale: SCALE, y: slideDistance, ease: 'power1.inOut' })
@@ -120,19 +127,26 @@ function onMouseleave() {
   })
 }
 
+function killAnimations() {
+  for (const animation of Object.values(animations)) {
+    if (animation) {
+      animation.kill()
+      animation = null
+    }
+  }
+}
+
 onMounted(() => {
   window.addEventListener('scroll', updateAnimation)
 })
 
 onUnmounted(() => {
-  for (const animation of Object.values(animations)) {
-    if (animation) animation.kill()
-  }
+  killAnimations()
   window.removeEventListener('scroll', updateAnimation)
 })
 
 onPreloaderComplete(() => {
-  animations.show.play()
+  playShowAnimation()
 })
 </script>
 

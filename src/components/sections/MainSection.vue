@@ -30,7 +30,7 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onUnmounted, ref } from 'vue'
 import { gsap } from 'src/assets/js/animation'
 import { usePreloader } from 'src/composables/preloader'
 
@@ -42,7 +42,7 @@ const animations = {
   show: null
 }
 
-function createShowAnimations() {
+function playShowAnimation() {
   const $imageInner = parentEl.value.$el.querySelector('.main-section__image-inner')
   const $imageElement = parentEl.value.$el.querySelector('.main-section__image-element')
   const $textElements = parentEl.value.$el.querySelectorAll('.text-hero-title__line, .main-section__description')
@@ -63,16 +63,12 @@ function killAnimations() {
   }
 }
 
-onMounted(() => {
-  createShowAnimations()
+onPreloaderComplete(() => {
+  playShowAnimation()
 })
 
 onUnmounted(() => {
   killAnimations()
-})
-
-onPreloaderComplete(() => {
-  animations.show.play()
 })
 </script>
 

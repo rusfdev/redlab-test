@@ -30,20 +30,19 @@
 </template>
 
 <script setup>
-import { useStore } from 'src/stores/store'
-import { onMounted, onUnmounted, ref, watch } from 'vue'
-import { gsap, sDur } from 'src/assets/js/animation'
-import { storeToRefs } from 'pinia'
+import { onMounted, onUnmounted, ref } from 'vue'
+import { gsap } from 'src/assets/js/animation'
+import { usePreloader } from 'src/composables/preloader'
 
-const store = useStore()
-const { isLoaded } = storeToRefs(store)
+const { onPreloaderComplete } = usePreloader()
+
 const parentEl = ref(null)
 
 const animations = {
   show: null
 }
 
-function createShowAnimation() {
+function createShowAnimations() {
   const $imageInner = parentEl.value.$el.querySelector('.main-section__image-inner')
   const $imageElement = parentEl.value.$el.querySelector('.main-section__image-element')
   const $textElements = parentEl.value.$el.querySelectorAll('.text-hero-title__line, .main-section__description')
@@ -54,23 +53,26 @@ function createShowAnimation() {
     .fromTo($imageElement, { scale: 1.5 }, { scale: 1, duration: 2, ease: 'power2.out' }, '<')
     .fromTo($textElements,
       { yPercent: 100 },
-      { yPercent: 0, duration: 0.75, ease: 'power2.out', stagger: { amount: 0.25 } },
-      '<+=1'
+      { yPercent: 0, duration: 0.75, ease: 'power2.out', stagger: { amount: 0.25 } }, '<+=1'
     )
 }
 
-onMounted(() => {
-  createShowAnimation()
-
-  watch(isLoaded, (value) => {
-    if (value) animations.show.play()
-  }, { immediate: true })
-})
-
-onUnmounted(() => {
+function killAnimations() {
   for (const animation of Object.values(animations)) {
     if (animation) animation.kill()
   }
+}
+
+onMounted(() => {
+  createShowAnimations()
+})
+
+onUnmounted(() => {
+  killAnimations()
+})
+
+onPreloaderComplete(() => {
+  animations.show.play()
 })
 </script>
 

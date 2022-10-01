@@ -2,8 +2,7 @@ import { defineStore } from 'pinia'
 
 export const useStore = defineStore('store', {
   state: () => ({
-    _fullScreenLength: 0,
-    isLoaded: false
+    _fullScreenLength: 0
   }),
   getters: {
     isFullScreen() {

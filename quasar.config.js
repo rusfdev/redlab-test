@@ -29,6 +29,7 @@ module.exports = configure(function(ctx) {
     // --> boot files are part of "main.js"
     // https://v2.quasar.dev/quasar-cli-webpack/boot-files
     boot: [
+      { server: false, path: 'preloader' },
       { server: false, path: 'screen-test' },
       { server: false, path: 'aos' },
       'ui',

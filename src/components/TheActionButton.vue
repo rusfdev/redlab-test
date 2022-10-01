@@ -23,11 +23,14 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { gsap, sDur } from 'src/assets/js/animation'
 import { useStore } from 'src/stores/store'
 import { storeToRefs } from 'pinia'
 import { useQuasar } from 'quasar'
+import { usePreloader } from 'src/composables/preloader'
+
+const { onPreloaderComplete } = usePreloader()
 
 const SLIDE_SCROLL_DISTANCE = 400
 const SCALE = 0.75
@@ -35,15 +38,12 @@ const SLIDE_DISTANCE = 0.33
 
 const $q = useQuasar()
 const store = useStore()
-const { isLoaded, isFullScreen } = storeToRefs(store)
+const { isFullScreen } = storeToRefs(store)
 
 const parentEl = ref(null)
 const outerEl = ref(null)
-const scale = ref(1)
-const slide = ref(1)
 const hover = ref(false)
 const progress = ref(0)
-const initialized = ref(false)
 
 const animations = {
   show: null,
@@ -55,14 +55,6 @@ const animations = {
 function onResize(size) {
   createShowAnimation(size)
   createSlideAnimation(size)
-
-  if (initialized.value) return
-
-  watch(isLoaded, (value) => {
-    if (value) animations.show.play()
-  }, { immediate: true })
-
-  initialized.value = true
 }
 
 function createShowAnimation(size) {
@@ -137,6 +129,10 @@ onUnmounted(() => {
     if (animation) animation.kill()
   }
   window.removeEventListener('scroll', updateAnimation)
+})
+
+onPreloaderComplete(() => {
+  animations.show.play()
 })
 </script>
 

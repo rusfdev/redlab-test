@@ -1,30 +1,34 @@
 <template>
-  <div :class="['app-wrapper', { 'app-wrapper--loaded': isLoaded }]">
+  <div class="app-wrapper">
     <router-view />
   </div>
 </template>
 
 <script setup>
-import { storeToRefs } from 'pinia'
-import { useStore } from 'src/stores/store'
+import { gsap, sDur } from 'src/assets/js/animation'
+import { usePreloader } from 'src/composables/preloader'
 
-const store = useStore()
-const { isLoaded } = storeToRefs(store)
+const { onPreloaderComplete } = usePreloader()
 
-window.addEventListener('load', () => {
-  setTimeout(() => isLoaded.value = true, 500)
+function showApp() {
+  const $wrapper = document.querySelector('#q-app')
+
+  gsap.to($wrapper, { autoAlpha: 1, duration: sDur[3],
+    onComplete: () => {
+      gsap.set($wrapper, { clearProps: 'all' })
+    }
+  })
+
+  document.body.style.overflow = 'auto'
+}
+
+onPreloaderComplete(() => {
+  showApp()
 })
 </script>
 
 <style lang="scss" scoped>
 .app-wrapper {
   width: 100%;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity var(--trs-2), visibility var(--trs-2);
-  &--loaded {
-    opacity: 1;
-    visibility: visible;
-  }
 }
 </style>

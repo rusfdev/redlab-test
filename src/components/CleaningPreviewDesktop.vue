@@ -74,7 +74,7 @@
 </template>
 
 <script setup>
-import { computed, onBeforeUnmount, onMounted, onUnmounted, ref, watch } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useScale } from 'src/composables/scale'
 import { gsap, ScrollTrigger, sDur, msDur } from 'src/assets/js/animation'
 import { debounce } from 'quasar'

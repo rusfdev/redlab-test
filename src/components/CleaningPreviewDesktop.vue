@@ -228,7 +228,7 @@ function createScrollTrigger() {
 
 function showTooltipsOfSlide($slide) {
   if ($slide.tooltipsAnimation) {
-    $slide.tooltipsAnimation.play()
+    $slide.tooltipsAnimation.timeScale(1).play()
     return
   }
 
@@ -242,7 +242,7 @@ function showTooltipsOfSlide($slide) {
 
 function hideTooltipsOfSlide($slide) {
   if (!$slide.tooltipsAnimation) return
-  $slide.tooltipsAnimation.reverse()
+  $slide.tooltipsAnimation.timeScale(2).reverse()
 }
 
 watch(isReady, (value) => {

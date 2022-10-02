@@ -138,7 +138,7 @@ function onChange(index) {
     )
 
   setTimeout(() => {
-    showTooltipsOfSlide($slide)
+    if (isReady.value) showTooltipsOfSlide($slide)
   }, msDur[3])
 
   animation.eventCallback('onComplete', function() {
@@ -247,6 +247,7 @@ function hideTooltipsOfSlide($slide) {
 
 watch(isReady, (value) => {
   const $slide = slidesRef.value[activeIndex.value]
+
   if (value) {
     store.setFullScreen()
     showTooltipsOfSlide($slide)

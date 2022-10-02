@@ -191,7 +191,7 @@ onMounted(() => {
   border: 1px solid $light-grey;
   font-weight: 500;
   color: $secondary;
-  transition: color var(--trs-1), border-color var(--trs-1), background-color var(--trs-1);
+  transition: color var(--trs-2), border-color var(--trs-2), background-color var(--trs-2);
   &--active {
     background-color: $accent;
     border-color: $accent;

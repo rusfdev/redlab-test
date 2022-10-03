@@ -3,7 +3,7 @@
 
     <app-container class="cleaning-preview-image-container">
       <div class="cleaning-preview-image" ref="imageRef">
-        <q-responsive ratio="1.75" />
+        <q-responsive :ratio="RATIO" />
       </div>
     </app-container>
 
